@@ -1,5 +1,5 @@
 syntax = "proto3";
-package house;
+package kit;
 
 
 
@@ -34,7 +34,7 @@ message RequestCreate {
     string title = 1;
 }
 
-service houseService {
+service kitService {
     rpc Create(RequestCreate) returns (ResponseDetails) {}
 }
 
