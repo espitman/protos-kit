@@ -1,0 +1,40 @@
+syntax = "proto3";
+package house;
+
+
+
+message Images {
+    repeated Image backdrops = 1;
+    repeated Image posters = 2;
+}
+
+message Image {
+    string file_path =1;
+}
+
+
+message RequestDetails {
+    // @inject_tag: json:"id",validate:"required"
+    string id = 1;
+
+    // @inject_tag: json:"full"
+    bool full = 2;
+}
+
+message ResponseDetails {
+    string id = 1;
+    string title = 2;
+    string backdrop_path = 3;
+    string poster_path = 4;
+   
+}
+
+message RequestCreate {
+    // @inject_tag: json:"title",validate:"required"
+    string title = 1;
+}
+
+service houseService {
+    rpc Create(RequestCreate) returns (ResponseDetails) {}
+}
+
